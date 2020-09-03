@@ -17,7 +17,7 @@
 
 ## マイグレーションファイル作成
 
-`rails g model テーブル名（単数形） カラム名:データ型`
+`rails g model モデル名（単数形） カラム名:データ型`
 
 ## データベースに反映
 
@@ -32,6 +32,9 @@
 # データベース
 
 ```Ruby
+
+# モデル名はPost
+
 # インスタンスの作成
 
 post = Post.new(引数)
@@ -48,6 +51,10 @@ Post.all
 #特定のidのデータ取得
 
 post=Post.find_by(id:n)
+
+#データの削除
+
+post.destroy
 
 ```
 
