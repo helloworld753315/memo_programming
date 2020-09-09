@@ -11,6 +11,10 @@
 
 `rails new アプリケーション名`
 
+## サーバーを建てる
+
+`rails s`
+
 ## コントローラー生成
 
 `rails generate controller <コントローラー名> <アクション名>`
@@ -129,6 +133,16 @@ params[:name]
 #ルーティングで設定したURLのid取得
 
 params[:id]
+
+#formのデータ送信(POST)
+
+<%= form_tag("URL", method: :POST) do %>
+
+<% end %>
+
+#他のURLに転送
+
+redirect_to("URL")
 
 ```
 
