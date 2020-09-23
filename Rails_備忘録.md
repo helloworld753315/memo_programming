@@ -1,9 +1,7 @@
-
 # 用語
 
-- ルーティング→コントローラー→View
-- **マイグレーションファイル**　Rubyで書かれた テーブルの設計図(これを元にテーブルが作られる)
-
+- ルーティング → コントローラー →View
+- **マイグレーションファイル**　 Ruby で書かれた テーブルの設計図(これを元にテーブルが作られる)
 
 # コマンド
 
@@ -25,13 +23,13 @@
 
 ## データベースに反映
 
-`rails db:migrate` 
+`rails db:migrate`
 
 # Rails Console
 
 ## 起動と終了
 
-- 起動  rails console
+- 起動 rails console
 
 # ファイル置き場所
 
@@ -43,16 +41,15 @@
 
 app / **controllers** / xx_controller.rb
 
-##  Viewファイル
+## View ファイル
 
 app / **view** /コントローラー名 / action.html.erb
 
-## cssファイル
+## css ファイル
 
-stylesheets内に入ってるcssに書けば全てのビューにcssが適用される
+stylesheets 内に入ってる css に書けば全てのビューに css が適用される
 
 app / assets / **stylesheets** / コントローラー名.scss
-
 
 ## 画像
 
@@ -61,8 +58,7 @@ app / **public** / sample.png
 ```html
 <!-- ファイル名の前に/つける  -->
 
-<img src="/sample.png">
-
+<img src="/sample.png" />
 ```
 
 # データベース
@@ -92,28 +88,30 @@ post=Post.find_by(id:n)
 
 post.destroy
 
+#バリデーション（不正なデータのチェック）
+
+#検証するカラム:content, 空の投稿を防ぐ
+
+validates :content, {presense: true}
+
 ```
 
 # その他
 
 ```html
-
 <!-- HTML内にRubyのコードを挿入する時 -->
 
 <!-- ※簡単な繰り返し処理、変数の定義などに使用 -->
 
 <% username=　"佐藤太郎" %>
 
-
 <!-- 変数の中身を文字列として出力したい場合 -->
 
 <p><%= username %>さん、ようこそ</p>
 
-
 <!-- こうすると表示されないので注意 -->
 
 <p><% username %>さん、ようこそ</p>
-
 ```
 
 ```Ruby
@@ -145,9 +143,3 @@ params[:id]
 redirect_to("URL")
 
 ```
-
-
-
-
-
-
