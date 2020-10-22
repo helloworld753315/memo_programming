@@ -78,7 +78,7 @@ post.save
 
 # 全てのデータ取得
 
-Post.all
+post=Post.all
 
 #特定のidのデータ取得
 
@@ -90,11 +90,40 @@ post.destroy
 
 #バリデーション（不正なデータのチェック）
 
-#検証するカラム:content, 空の投稿を防ぐ
+  #検証するカラム:content, 空の投稿を防ぐ
 
-validates :content, {presense: true}
+  validates :content, {presense: true}
+
+  #検証するカラム:content, 文字数の制限(140字に制限)
+
+  validates :content, {length: {maximum: 140}}
+
+  #複数指定
+  validates :content, {presense: true, length: {maximum: 140}}
+
+  #検証するカラム:email, 重複登録を防ぐ
+  validates :email, {uniqueness: true}
+
+#エラ〜メッセージの自動生成
+post.errors.full_messages
 
 ```
+
+# 認証系
+
+## ユーザー登録
+
+### 必要なもの
+
+- Step1: ユーザー登録ページの作成
+- step2: ユーザーの保存
+- Step3: サクセス・エラーメッセージの表示
+  - 保存に失敗したとき
+    - フォームを表示する
+    - エラー文を表示する
+    - フォームに初期値を入れる
+
+
 
 # その他
 
@@ -116,6 +145,8 @@ validates :content, {presense: true}
 
 ```Ruby
 
+# 繰り返し
+
 #グローバル変数は変数名の前に@をつける
 
 @text="Hello,World"
@@ -134,7 +165,10 @@ params[:id]
 
 #formのデータ送信(POST)
 
+#<form>と同じような役割
+
 <%= form_tag("URL", method: :POST) do %>
+
 
 <% end %>
 
@@ -142,4 +176,16 @@ params[:id]
 
 redirect_to("URL")
 
+#editアクションを経由せずにedit.htmlに
+
+render("posts/edit")
+
+#ページ上で一度だけ表示されるメッセージ（フラッシュ）
+
+flash[:notice]="表示したい文字列"
+
 ```
+
+
+
+
